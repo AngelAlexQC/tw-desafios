@@ -120,3 +120,9 @@ Publication::whereHas('comments', function ($q) {
     $q->where('content', 'LIKE', '%' . 'Hola' . '%')->where('status', Comment::STATUS_APROBADO);
 })->get();
 ```
+
+# Desafío 4
+
+### Respuesta:
+
+Si son bien usadas se les puede sacar el mejor provecho, ya que las migraciones se ejecutan una detrás de otra y solamente las nuevas, ademas los seeders (a pesar de que se usan para datos de prueba) se pueden aprovechar para llenar datos reales, todo depende de si la migracion afecta o no a la estructura de la base datos, por eso hay que definirla desde un principio de tal forma que no afecte la incorporacion de nuevas tablas, mejor dicho: si tu base de datos está bien normalizada, es escalable y sabes el funcionamiento correcto de las migraciones puedes hacer cambios sin miedo a perder tu información.
