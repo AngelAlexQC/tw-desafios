@@ -117,6 +117,6 @@ public function publication()
 
 ```
 Publication::whereHas('comments', function ($q) {
-    $q->where('content', 'LIKE', '%' . 'a' . '%')->where('status', Comment::STATUS_APROBADO);
+    $q->where('content', 'LIKE', '%' . 'Hola' . '%')->where('status', Comment::STATUS_APROBADO);
 })->get();
 ```
