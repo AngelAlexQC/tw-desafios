@@ -110,3 +110,13 @@ public function publication()
     return $this->belongsTo(Publication::class);
 }
 ```
+
+# Desafío 3
+
+#### **Consulta requerida desafío 3**
+
+```
+Publication::whereHas('comments', function ($q) {
+    $q->where('content', 'LIKE', '%' . 'a' . '%')->where('status', Comment::STATUS_APROBADO);
+})->get();
+```
