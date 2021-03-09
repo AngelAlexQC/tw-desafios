@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewCommentNotification;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
@@ -35,7 +38,13 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = Comment::create([
+            'content' => $request->content,
+            'publication_id' => $request->publication_id,
+            'user_id' => Auth::user()->id
+        ]);
+        Mail::to($comment->user->email)->send(new NewCommentNotification($comment));
+        return back();
     }
 
     /**

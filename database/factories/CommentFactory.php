@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Comment;
 use App\Models\Publication;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentFactory extends Factory
@@ -25,6 +26,7 @@ class CommentFactory extends Factory
         return [
             'publication_id' => Publication::factory(),
             'content' => $this->faker->text(),
+            'user_id' => User::factory()
         ];
     }
 }

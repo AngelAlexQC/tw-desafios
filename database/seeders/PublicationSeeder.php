@@ -14,6 +14,6 @@ class PublicationSeeder extends Seeder
      */
     public function run()
     {
-        Publication::factory(5)->create();
+        Publication::factory(1)->create();
     }
 }

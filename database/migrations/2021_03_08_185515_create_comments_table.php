@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('publication_id')->references('id')->on('publications');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->longText('content');
             $table->enum('status', [
                 Comment::STATUS_PENDIENTE,

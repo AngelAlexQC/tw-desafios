@@ -40,4 +40,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the publication that owns the comment.
+     */
+    public function publications()
+    {
+        return $this->hasMany(Publication::class);
+    }
+
+    /**
+     * Get the comments that owns the comment.
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

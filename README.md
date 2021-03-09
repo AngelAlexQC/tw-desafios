@@ -137,3 +137,5 @@ php artisan ui bootstrap --auth
 npm install
 npm run dev
 ```
+
+Luego se procede a hacer cambios en los controladores y vistas (revisar código)
