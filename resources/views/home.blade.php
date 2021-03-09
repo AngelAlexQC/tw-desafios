@@ -4,6 +4,30 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                <div class="card mb-3">
+                    <form action="{{ route('publications.store') }}" method="post">
+                        @csrf
+                        <div class="card-header">
+                            <h4>
+                                Nueva publicación
+                            </h4>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="title" id="title"
+                                    placeholder="Escribe el título de tu publicación">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <textarea class="form-control" name='content' id='content' rows="3"
+                                    placeholder="Escribe el contenido de tu publicación"></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="mb-3">
                     {{ $publications->links() }}
                 </div>

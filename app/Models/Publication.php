@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Publication extends Model
 {
+    protected $fillable = ['title', 'content', 'user_id'];
     public $appends = ['comments_by_me'];
     use HasFactory;
     /**

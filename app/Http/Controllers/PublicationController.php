@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Publication;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PublicationController extends Controller
 {
@@ -35,7 +36,12 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Publication::create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'user_id' => Auth::user()->id
+        ]);
+        return back();
     }
 
     /**
